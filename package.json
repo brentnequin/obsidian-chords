@@ -1,24 +1,32 @@
 {
-	"name": "obsidian-sample-plugin",
-	"version": "1.0.0",
-	"description": "This is a sample plugin for Obsidian (https://obsidian.md)",
+	"name": "obsidian-chords",
+	"version": "0.0.1",
+	"description": "Create chord sheets from codeblocks.",
 	"main": "main.js",
 	"scripts": {
-		"dev": "node esbuild.config.mjs",
-		"build": "tsc -noEmit -skipLibCheck && node esbuild.config.mjs production",
+		"dev": "rollup --config rollup.config.mjs -w",
+    	"build": "rollup --config rollup.config.mjs --environment BUILD:production",
 		"version": "node version-bump.mjs && git add manifest.json versions.json"
 	},
 	"keywords": [],
 	"author": "",
 	"license": "MIT",
 	"devDependencies": {
+		"@rollup/plugin-commonjs": "^25.0.2",
+		"@rollup/plugin-node-resolve": "^15.1.0",
+		"@rollup/plugin-typescript": "^11.1.2",
 		"@types/node": "^16.11.6",
 		"@typescript-eslint/eslint-plugin": "5.29.0",
 		"@typescript-eslint/parser": "5.29.0",
 		"builtin-modules": "3.3.0",
-		"esbuild": "0.17.3",
 		"obsidian": "latest",
+		"rollup": "^3.26.2",
 		"tslib": "2.4.0",
 		"typescript": "4.7.4"
+	},
+	"dependencies": {
+		"markdown-it": "^13.0.1",
+		"markdown-it-chords": "^1.0.3",
+		"rollup-plugin-css-only": "^4.3.0"
 	}
 }
