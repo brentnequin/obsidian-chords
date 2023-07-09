@@ -1,13 +1,17 @@
-import { Plugin } from "obsidian";
+import { Plugin, Editor, MarkdownPostProcessorContext } from "obsidian";
 import 'markdown-it-chords/markdown-it-chords.css';
 
-var md = require('markdown-it')()
-md.use(require('markdown-it-chords'))
+var MarkdownIt = require('markdown-it')()
+  .use(require('markdown-it-chords'))
 
-export default class ExamplePlugin extends Plugin {
+export default class ChordsPlugin extends Plugin {
   async onload() {
-    this.registerMarkdownCodeBlockProcessor("chords", (source, el, ctx) => {
-      el.innerHTML = md.render(source)
+
+    this.registerMarkdownPostProcessor((element: HTMLElement, context: MarkdownPostProcessorContext) => {
+    })
+
+    this.registerMarkdownCodeBlockProcessor("chords", (source: String, element: HTMLElement, context: MarkdownPostProcessorContext) => {
+      element.innerHTML = MarkdownIt.render(source)
     })
   }
 }

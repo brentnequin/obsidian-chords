@@ -38,3 +38,10 @@
 	z-index: 5;
 }
 
+.block-language-chords {
+	font-family: "Roboto Mono", "Courier New", monospace;
+}
+
+.block-language-chords * em {
+	font-family: Georgia, serif;
+}
